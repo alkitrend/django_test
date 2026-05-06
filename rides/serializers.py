@@ -19,6 +19,7 @@ class RideSerializer(serializers.ModelSerializer):
     id_rider = UserSerializer(read_only=True)
     id_driver = UserSerializer(read_only=True)
     todays_ride_events = serializers.SerializerMethodField()
+    distance_to_pickup = serializers.FloatField(read_only=True)
 
     class Meta:
         model = Ride
@@ -32,6 +33,7 @@ class RideSerializer(serializers.ModelSerializer):
             'dropoff_latitude',
             'dropoff_longitude',
             'pickup_time',
+            'distance_to_pickup',
             'todays_ride_events',
         )
 
